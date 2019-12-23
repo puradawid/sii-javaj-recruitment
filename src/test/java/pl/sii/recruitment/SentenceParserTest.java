@@ -21,7 +21,6 @@ public class SentenceParserTest {
     }
 
     @Test
-
     public void shouldResponseWithTwoWordSentence() {
         SentenceParser parser = new SentenceParser("Single sentence.");
 
@@ -30,5 +29,15 @@ public class SentenceParserTest {
         assertThat(sentences.size(), CoreMatchers.is(1));
         assertThat(sentences.get(0).toWords().size(), CoreMatchers.is(2));
         assertThat(sentences.get(0).toWords().get(0).toString(), CoreMatchers.is("Single"));
+    }
+
+    @Test
+    public void shouldResponseWithNumber() {
+        SentenceParser parser = new SentenceParser("Sentence number 3.");
+
+        List<Sentence> sentences = parser.toSentences();
+
+        assertThat(sentences.size(), CoreMatchers.is(1));
+        assertThat(sentences.get(0).toWords().get(2), CoreMatchers.instanceOf(Number.class));
     }
 }

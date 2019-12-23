@@ -12,10 +12,15 @@ public class SentenceParser {
         this.input = input;
     }
 
+    /**
+     * This method parses provided text to sentences
+     * @return collection of sentences
+     */
     public List<Sentence> toSentences() {
         List<Sentence> result = new LinkedList<Sentence>();
         String[] sentences = input.split("\\.");
         for (int i = 0; i < sentences.length; i++) {
+            // takes each sentence to sentenceText variable
             String sentenceText = sentences[i];
             String[] wordsText = sentenceText.split(" ");
             List<Word> words = new ArrayList<>(1);
